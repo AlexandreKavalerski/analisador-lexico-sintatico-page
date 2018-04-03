@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/AlexandreKavalerski/analisadorLexicoSintatico-exemplo#readme",
   "dependencies": {
-    "analisadorlexicosintatico": "^1.0.5"
+    "analisadorlexicosintatico": "^1.0.7"
   }
 }
