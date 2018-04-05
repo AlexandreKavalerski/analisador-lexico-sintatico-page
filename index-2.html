@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teste - Treant js</title>
+  <link rel="stylesheet" href="treant-js/Treant.css">
+</head>
+
+<body>
+  <div id="tree-simple" style="width:350px; height: 900px"> </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="treant-js/Treant.js"></script>
+  <script src="treant-js/vendor/raphael.js"></script>
+
+  <script>
+    var simple_chart_config = {
+      chart: {
+        container: "#tree-simple"
+      },
+
+      nodeStructure: {
+        text: { name: "E" },
+        children: [
+          {
+            text: { name: "E" },
+            children: [
+              {
+                text: { name: "Incognita" },
+                children: [
+                  {
+                    text: { name: "X" }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            text: { name: "Operador" },
+            children: [
+              {
+                text: { name: "+" }
+              }
+            ]
+          },
+          {
+            text: { name: "E" },
+            children: [
+              {
+                text: { name: "Incognita" },
+                children: [
+                  {
+                    text: { name: "X" }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    $(document).ready(function () {
+      var my_chart = new Treant(simple_chart_config);
+      var chart = new Treant(simple_chart_config, function () { alert('Tree Loaded') }, $);
+    });
+  </script>
+</body>
+
+</html>
