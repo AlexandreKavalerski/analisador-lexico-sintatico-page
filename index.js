@@ -47,4 +47,33 @@ $(document).ready(function () {
       $(".sucesso").hide();
     });
   }
+
+  $("#random").on('click', randomToken);
+
+  function randomToken(){
+
+    /* $.getJSON('tokens.json', function(dados) {
+        var items = [];
+        $.each( data, function( key, val ) {
+        items.push( "<li id='" + key + "'>" + val + "</li>" );
+      });
+        console.log(items);
+      });
+ */
+    var tokens = [ "1 + 1", "3", "x","( 54 )", "( / )", "( 2 / 9 )", " / )"];
+    var random = 0;
+    var token = "";
+
+    for (var i = 0; i < tokens.length; i++) {
+        var rNum = Math.floor(Math.random() * tokens.length);
+        random = rNum  
+    }
+
+    token = tokens[random];
+    console.log(token);
+    document.getElementById('entrada').value = token;
+    return token;
+  }
+
 });
+

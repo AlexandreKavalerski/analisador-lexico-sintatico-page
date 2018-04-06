@@ -10,46 +10,49 @@
   <link rel="stylesheet" href="index.css">
   <script src="./node_modules/analisadorlexicosintatico/lib/analisador-lex-sin.umd.min.js"></script>
 
-  <title>Exemplo 1</title>
+  <title>Analisador Léxico e Sintático</title>
 </head>
 
 <body>
-  <div class="jumbotron">
+  <div class="">
     <h1 class="text-center">Analisador Léxico e Sintático</h1>
-    <div class="alert alert-danger erro" role="alert">
-      <div id="msgErro" class="lead text-center">
-      </div>
-    </div>
-    <div class="alert alert-info sucesso" role="alert">
-      <div id="msgSucesso" class="lead text-center">
-      </div>
-    </div>
-
-    <div class="" id="gramatica">
-      <p class="text-center lead">
-        O analisador é baseado na seguinte gramática:
-
-        <pre>
-        E        ::= E OPERADOR E | E | '(' E ')' | INCOGNITA | NUMERO
-        OPERADOR ::= '+' | '-' | '*' | '/'
-        INCOGNITA ::= 'x' | 'y'
-        NUMERO   ::= [0-9]+
-        </pre>
-      </p>
-    </div>
-
-    <div class="entradas text-center">
-      <input type="text" class="text-center" id="entrada">
-      <button class="text-center" id="ir">Ir</button>
-
-      <p>
-        <strong>Obs:</strong>
-        Caso haja mais de 1 token, eles devem estar separados por espaço simples. (Ex: "( x + y )").
-      </p>
+  <div class="alert alert-danger erro" role="alert">
+    <div id="msgErro" class="lead text-center">
     </div>
   </div>
+  <div class="alert alert-info sucesso" role="alert">
+    <div id="msgSucesso" class="lead text-center">
+    </div>
+  </div>
+  <div>
+    <div class="container wrap stretch colum">
+        <p class="text-center lead">
+          O analisador é baseado na seguinte gramática:
+          <pre>
+  E        ::= E OPERADOR E | E | '(' E ')' | INCOGNITA | NUMERO 
+  OPERADOR ::= '+' | '-' | '*' | '/'
+  INCOGNITA ::= 'x' | 'y'
+  NUMERO   ::= [0-9]+
+          </pre>
+        </p>
+      </div>
+  </div>
+    
+  <div class="entradas text-center ">
+    <input type="text" class="text-center" id="entrada">
+    ou
 
+    <button class="btn-hover color-tokenRandom" id="random">Token aleatório</button>
+    <br><button class="btn-hover color-verificar" id="ir">Verificar</button>
+    <p>
+      <strong>Obs:</strong>
+      Caso haja mais de 1 token, eles devem estar separados por espaço simples. (Ex: "( x + y )").
+    </p>
+  </div>
 
+  <footer>AIJK - A maioria dos malditos direitos reservados - 2018</footer>
+  </div>
+  
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -59,6 +62,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
   <script src="index.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
 </body>
 
 </html>
