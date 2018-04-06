@@ -14,54 +14,21 @@
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="./lib-test/analisador-lex-sin.umd.min.js"></script>
   <script src="treant-js/Treant.js"></script>
   <script src="treant-js/vendor/raphael.js"></script>
 
   <script>
+    var sentenca = "x"
+    var res = analisador.getChildrenAsJSON(sentenca)
+    console.log(res)
     var simple_chart_config = {
       chart: {
         container: "#tree-simple"
       },
 
-      nodeStructure: {
-        text: { name: "E" },
-        children: [
-          {
-            text: { name: "E" },
-            children: [
-              {
-                text: { name: "Incognita" },
-                children: [
-                  {
-                    text: { name: "X" }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            text: { name: "Operador" },
-            children: [
-              {
-                text: { name: "+" }
-              }
-            ]
-          },
-          {
-            text: { name: "E" },
-            children: [
-              {
-                text: { name: "Incognita" },
-                children: [
-                  {
-                    text: { name: "X" }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
+      nodeStructure:
+        res
     };
 
     $(document).ready(function () {
