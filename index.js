@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $(".erro").hide();
   $(".sucesso").hide();
+  $("#tree").hide();
 
   $("#ir").on('click', manageEntradaAnalisar);
   $("#gerarImg").on('click', manageEntradaGerarImg);
@@ -31,19 +32,19 @@ $(document).ready(function () {
   function manageEntradaGerarImg() {
     var entrada = $("#entrada").val();
     if (entrada) {
-      console.log(analisador)
-      var res = getChildrenAsJSON(entrada)
+      var res = analisador.getChildrenAsJSON(entrada)
       var simple_chart_config = {
         chart: {
-          container: "#tree-simple"
+          container: "#tree"
         },
 
         nodeStructure:
           res
       };
+      $("#tree").show()
 
       var my_chart = new Treant(simple_chart_config);
-      var chart = new Treant(simple_chart_config, function () { printSucesso('Tree Loaded') }, $);
+      var chart = new Treant(simple_chart_config, function () { printSucesso('Árvore gerada!') }, $);
 
     } else {
       printErro("Entrada não pode ser vazia!")
