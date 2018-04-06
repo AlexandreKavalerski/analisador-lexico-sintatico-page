@@ -2,16 +2,17 @@ $(document).ready(function () {
   $(".erro").hide();
   $(".sucesso").hide();
 
-  $("#ir").on('click', manageEntrada);
+  $("#ir").on('click', manageEntradaAnalisar);
+  $("#gerarImg").on('click', manageEntradaGerarImg);
 
   $("#entrada").on('keypress', function (e) {
     if (e.which == 13) {//pressionou enter
-      manageEntrada()
+      manageEntradaAnalisar()
     }
   })
 
 
-  function manageEntrada() {
+  function manageEntradaAnalisar() {
     var entrada = $("#entrada").val();
     if (entrada) {
       console.log(analisador.verificaSentenca(entrada));
@@ -22,6 +23,28 @@ $(document).ready(function () {
       } else {
         printErro(result.msg)
       }
+    } else {
+      printErro("Entrada não pode ser vazia!")
+    }
+  }
+
+  function manageEntradaGerarImg() {
+    var entrada = $("#entrada").val();
+    if (entrada) {
+      console.log(analisador)
+      var res = getChildrenAsJSON(entrada)
+      var simple_chart_config = {
+        chart: {
+          container: "#tree-simple"
+        },
+
+        nodeStructure:
+          res
+      };
+
+      var my_chart = new Treant(simple_chart_config);
+      var chart = new Treant(simple_chart_config, function () { printSucesso('Tree Loaded') }, $);
+
     } else {
       printErro("Entrada não pode ser vazia!")
     }
@@ -38,8 +61,6 @@ $(document).ready(function () {
     });
   }
   function printSucesso(sucesso) {
-
-
     $(".sucesso").show();
     $("#msgSucesso").html(sucesso);
     $("#msgSucesso").fadeTo(2000, 500).slideUp(500, function () {

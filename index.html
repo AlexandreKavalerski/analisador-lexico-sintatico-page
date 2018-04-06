@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="treant-js/Treant.css">
   <script src="./node_modules/analisadorlexicosintatico/lib/analisador-lex-sin.umd.min.js"></script>
 
   <title>Exemplo 1</title>
@@ -41,12 +42,14 @@
     <div class="entradas text-center">
       <input type="text" class="text-center" id="entrada">
       <button class="text-center" id="ir">Ir</button>
+      <button class="text-center" id="gerarImg">Gerar Imagem</button>
 
       <p>
         <strong>Obs:</strong>
         Caso haja mais de 1 token, eles devem estar separados por espaço simples. (Ex: "( x + y )").
       </p>
     </div>
+    <div id="tree" style="width:350px; height: 900px"> </div>
   </div>
 
 
@@ -57,7 +60,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+  <script src="treant-js/Treant.js"></script>
+  <script src="treant-js/vendor/raphael.js"></script>
   <script src="index.js"></script>
 </body>
 
