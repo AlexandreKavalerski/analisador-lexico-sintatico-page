@@ -32,19 +32,24 @@ $(document).ready(function () {
   function manageEntradaGerarImg() {
     var entrada = $("#entrada").val();
     if (entrada) {
-      var res = analisador.getChildrenAsJSON(entrada)
-      var simple_chart_config = {
-        chart: {
-          container: "#tree"
-        },
-
-        nodeStructure:
-          res
-      };
-      $("#tree").show()
-
-      var my_chart = new Treant(simple_chart_config);
-      var chart = new Treant(simple_chart_config, function () { printSucesso('Árvore gerada!') }, $);
+      var verificacao = analisador.verificaSentenca(entrada);
+      if(verificacao.status === "ok"){
+        var res = analisador.getChildrenAsJSON(entrada)
+        var simple_chart_config = {
+          chart: {
+            container: "#tree"
+          },
+  
+          nodeStructure:
+            res
+        };
+        $("#tree").show()
+  
+        var my_chart = new Treant(simple_chart_config);
+        var chart = new Treant(simple_chart_config, function () { printSucesso('Árvore gerada!') }, $);
+      }else{
+        printErro(verificacao.msg)  
+      }
 
     } else {
       printErro("Entrada não pode ser vazia!")
