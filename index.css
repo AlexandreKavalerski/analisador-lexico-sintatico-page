@@ -53,6 +53,11 @@ pre{
   box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
 }
 
+.btn-hover.color-ast {
+  background-image: linear-gradient(to right, #32CD32, #FCEE21, #00A8C5, #D9E021);
+  box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+
 .btn-hover:hover {
   background-position: 100% 0;
   moz-transition: all .4s ease-in-out;
