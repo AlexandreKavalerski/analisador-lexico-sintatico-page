@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="treant-js/Treant.css">
   <script src="./node_modules/analisadorlexicosintatico/lib/analisador-lex-sin.umd.min.js"></script>
 
   <title>Analisador Léxico e Sintático</title>
@@ -50,6 +51,9 @@
     </p>
   </div>
 
+    <div id="tree" style="width:450px; height: 600px"> </div>
+      <button class="text-center" id="gerarImg">Gerar AST</button>
+      <button class="text-center" id="ir">Analisar</button>
   <footer>AIJK - A maioria dos malditos direitos reservados - 2018</footer>
   </div>
   
@@ -60,7 +64,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+  <script src="treant-js/Treant.js"></script>
+  <script src="treant-js/vendor/raphael.js"></script>
   <script src="index.js"></script>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
 </body>
