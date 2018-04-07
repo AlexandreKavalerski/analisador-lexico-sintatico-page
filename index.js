@@ -1,3 +1,17 @@
+function fetchJSONFile(path, callback) {
+  var httpRequest = new XMLHttpRequest();
+  httpRequest.onreadystatechange = function() {
+      if (httpRequest.readyState === 4) {
+          if (httpRequest.status === 200) {
+              var data = JSON.parse(httpRequest.responseText);
+              if (callback) callback(data);
+          }
+      }
+  };
+  httpRequest.open('GET', path);
+  httpRequest.send(); 
+}
+
 $(document).ready(function () {
   $(".erro").hide();
   $(".sucesso").hide();
@@ -78,28 +92,21 @@ $(document).ready(function () {
   $("#random").on('click', randomToken);
 
   function randomToken(){
+    fetchJSONFile('sentencas.json', function(data){
+      // do something with your data
+      var sentencas = data.sentencas || [ "1 + 1", "3", "x","( 54 )", "( / )", "( 2 / 9 )", " / )"];
+      var random = 0;
+      var sentenca = "";
 
-    /* $.getJSON('tokens.json', function(dados) {
-        var items = [];
-        $.each( data, function( key, val ) {
-        items.push( "<li id='" + key + "'>" + val + "</li>" );
-      });
-        console.log(items);
-      });
- */
-    var tokens = [ "1 + 1", "3", "x","( 54 )", "( / )", "( 2 / 9 )", " / )"];
-    var random = 0;
-    var token = "";
+      for (var i = 0; i < sentencas.length; i++) {
+          var rNum = Math.floor(Math.random() * sentencas.length);
+          random = rNum  
+      }
 
-    for (var i = 0; i < tokens.length; i++) {
-        var rNum = Math.floor(Math.random() * tokens.length);
-        random = rNum  
-    }
-
-    token = tokens[random];
-    console.log(token);
-    document.getElementById('entrada').value = token;
-    return token;
+      sentenca = sentencas[random];
+      document.getElementById('entrada').value = sentenca;
+      return sentenca;
+    });   
   }
 
 });
